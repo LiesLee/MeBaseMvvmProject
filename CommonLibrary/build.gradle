@@ -1,0 +1,134 @@
+/*
+ * Copyright (c) 2016. Ted Park. All Rights Reserved
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.1'
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "mips", "mips64", "x86", "x86_64"
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile project(':Ultra-Pull-To-Refresh')
+    compile "com.android.support:appcompat-v7:$support_version"
+    compile "com.android.support:support-v4:$support_version"
+    compile "com.android.support:design:$support_version"
+    compile "com.android.support:recyclerview-v7:$support_version"
+    compile "com.android.support:cardview-v7:$support_version"
+    //compile "com.android.support:support-emoji-appcompat:$support_version"
+
+    // Lifecycles, LiveData and ViewModel
+    compile "android.arch.lifecycle:runtime:1.0.3"
+    compile "android.arch.lifecycle:extensions:1.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+
+    //图片选择、剪切、压缩
+    compile 'com.jph.takephoto:takephoto_library:4.0.3'
+
+    //消息总线eventbus
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //dex超65k
+    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.flyco.dialog:FlycoDialog_Lib:1.3.0@aar'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.andkulikov:transitionseverywhere:1.7.6'
+
+    //rx
+    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //okhttp
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+
+    compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
+
+    //Glide网络请求：OkHttpGlideModule进行注入
+    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit-converters:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'org.ligboy.retrofit2:converter-fastjson-android:2.1.0'
+
+    //友盟统计
+
+    //compile 'com.umeng.analytics:analytics:latest.integration'
+
+    //权限获取
+    compile 'com.karumi:dexter:2.2.2'
+
+    //adapter自动加载更多与header封装
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.31'
+
+    //大图查看，放大缩小
+    compile 'com.github.chrisbanes:PhotoView:1.3.0'
+
+    //毛玻璃效果
+
+    //compile 'com.github.mmin18:realtimeblurview:1.0.4'
+
+    //进度条
+    compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
+
+    //下拉刷新组件
+    compile 'com.github.dkzwm:SmoothRefreshLayout:1.4.7.3'
+
+    //圆角描边按钮等布局简化编写控件
+    compile 'com.lai:buttonStyle:1.0.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    // Anko Commons 基础包
+    compile "org.jetbrains.anko:anko-commons:$anko_version"
+
+    //banner轮播
+    compile 'cn.bingoogolapple:bga-banner:2.1.7'
+
+    //分段选择控件
+    compile 'com.7heaven.widgets:segmentcontrol:1.17'
+    compile 'com.bigkoo:pickerview:2.1.1'
+}
+repositories {
+    mavenCentral()
+}

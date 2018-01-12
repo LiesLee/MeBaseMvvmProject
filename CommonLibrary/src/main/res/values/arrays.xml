@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="vip_time_logo">
+        <item>5,0,45,0,</item>
+        <item>10,8,40,8,</item>
+        <item>45,0,50,8,</item>
+        <item>45,0,20,50,</item>
+        <item>50,8,30,50,</item>
+        <item>20,50,30,50,</item>
+        <item>20,50,0,8,</item>
+        <item>25,40,5,0,</item>
+        <item>0,8,5,0,</item>
+    </string-array>
+
+    <integer-array name="google_colors">
+        <item>@color/red</item>
+        <item>@color/blue</item>
+        <item>@color/yellow</item>
+        <item>@color/green</item>
+    </integer-array>
+
+    <integer-array name="Material_colors">
+        <item>@color/material_green</item>
+        <item>@color/material_blue</item>
+        <item>@color/material_yellow</item>
+    </integer-array>
+
+</resources>
